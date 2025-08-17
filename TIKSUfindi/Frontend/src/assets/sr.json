@@ -1,0 +1,197 @@
+{
+    "id": "sr",
+    "general": {
+        "yes": "Da",
+        "no": "Ne",
+        "loading": "učitavanje",
+        "error": {
+            "nepunaForma": "Sva polja moraju biti popunjena",
+            "netGreska": "Greška pri izvršavanju akcije",
+            "badRequest": "Nevalidni parametri"
+        },
+        "submit": "Potvrdi"
+    },
+    "header": {
+        "login": "PRIJAVI SE",
+        "register": "REGISTRUJ SE",
+        "majstor": "Majstor",
+        "poslodavac": "Poslodavac",
+        "profil": "PROFIL"
+    },
+    "pocetna": {
+        "moto": "Nađite odgovarajući lokalni talenat za vas",
+        "pregledMajstora": "Pretraži Majstore",
+        "pregledOglasa": "Pretraži Oglase"
+    },
+    "profilHeader": {
+        "napraviOglas": "Napravi Oglas",
+        "menu": "MENI",
+        "edit": "Izmeni Profil",
+        "logout": "Odjavi se",
+        "delete": "Izbriši Profil",
+        "confirmLogout": "Da li ste sigurni da želite da se odjavite?",
+        "confirmDelete": "Da li ste sigurni da želite da izbrišete profil?"
+    },
+    "formaProfil": {
+        "username": "Korisničko Ime",
+        "password": "Lozinka",
+        "login": "Prijavi se",
+        "naziv": "Javni Naziv",
+        "opis": "Opis",
+        "grad": "Grad",
+        "stolar": "Stolar",
+        "elektricar": "Električar",
+        "vodoinstalater": "Vodoinstalater",
+        "keramicar": "Keramičar",
+        "drugo": "Drugo",
+        "register": "Registruj se",
+        "loginPrompt": "Već imate nalog? Prijavite se ovde",
+        "adresa": "Adresa",
+        "vestine": "Veštine",
+        "slika": "Slika Naloga",
+        "naslov": "Naslov"
+    },
+    "pregledi": {
+        "search": "Pretraži",
+        "filters": "Filteri",
+        "filter": "Filtriraj",
+        "minOcena": "Minimalna Ocena",
+        "none": "Nijedan",
+        "sort": "Sortiraj",
+        "ocena": "Ocena",
+        "brRecenzija": "Broj Recenzija",
+        "minPlata": "Min. plata na sat",
+        "minPOcena": "Min. ocena poslodavca",
+        "plata": "Plata na sat",
+        "prev": "Prošla",
+        "next": "Sledeća",
+        "page": "Strana"
+    },
+    "profil": {
+        "zahtevPosao": "Pošalji Zahtev za Posao",
+        "zahtevGrupa": "Pošalji Zahtev za Grupu",
+        "adminIzbrisi": "Izbriši Profil Korisnika",
+        "prompt": "Da li ste sigurni da želite da izbrišete korisnika?"
+    },
+    "oglas": {
+        "prijavi": "Prijavi se",
+        "odjavi": "Odjavi se",
+        "datumDo": "Krajnji rok",
+        "slike": "Slike",
+        "prijavljeni": "Prijavljeni Majstori"
+    },
+    "formaUgovor": {
+        "imem": "Ime Majstora",
+        "imep": "Ime Poslodavca",
+        "datump": "Datum Pocetka",
+        "datumk": "Datum Završetka",
+        "potpisi": "Potpiši Ugovor",
+        "opis": "Opis Posla",
+        "potpis": "Potpis"
+    },
+    "formaGrupa": {
+        "opis": "Opis Zahteva",
+        "submit": "Pošalji Zahtev za Grupu"
+    },
+    "formaRecenzija": {
+        "opis": "Opis Recenzije",
+        "submit": "Dodaj Recenziju"
+    },
+    "dropdown": {
+        "rasp": "Registruj se kao Poslodavac",
+        "rasm": "Registruj se kao Majstor",
+        "switch": "Promeni Profil"
+    },
+    "kalendar": {
+        "sd": "Postavi Dane",
+        "sr": "Postavi Opsege",
+        "fd": "Oslobodi Dane",
+        "fr": "Oslobodi Opsege",
+        "save": "Sačuvaj Kalendar"
+    },
+    "stranicaProfil": {
+        "nema": "Nema Podataka",
+        "ugovori": "Ugovori",
+        "oglasi": "Oglasi",
+        "gzahtevi": "Zahtevi za Grupu",
+        "pzahtevi": "Zahtevi za Posao",
+        "kalendar": "Kalendar",
+        "clanovi": "Članovi",
+        "izlazIzGrupe": "Izađi iz Grupe",
+        "iz": "Iz",
+        "recenzije": "Recenzije"
+    },
+    "profilUgovori": {
+        "nema": "Nema Ugovora",
+        "aktivni": "Aktivni Ugovori",
+        "dpocetak": "Datum Početka",
+        "dkraj": "Datum Završetka",
+        "download": "Skini PDF",
+        "potpisi": "Potpiši Ugovor",
+        "recenzija": "Dodaj Recenziju",
+        "raskini": "Raskini Ugovor",
+        "neuspeh": "Posao Neuspešan",
+        "uspeh": "Posao Uspešan",
+        "prompt": "Da li ste sigurni da želite da raskinete ugovor?",
+        "zavrseni": "Završeni ugovori"
+    },
+    "profilOglasi": {
+        "nema": "Nema Oglasa",
+        "oglasi": "Aktivni Oglasi",
+        "vestine": "Tražene Veštine",
+        "pogledaj": "Pogledaj Oglas",
+        "odjavi": "Odjavi se",
+        "izbrisi": "Izbriši Oglas",
+        "prompt": "Da li ste sigurni da želite da obrišete oglas?",
+        "pdate": "Datum Postavljanja",
+        "propmtodjava": "Da li ste sigurni da želite da se odjavite?"
+    },
+    "profilZahtevi": {
+        "nemag": "Nema Zahteva za Grupu",
+        "poslatig": "Poslati Zahtevi za Grupu",
+        "primalac": "Primalac",
+        "povuci": "Povuci",
+        "napravig": "Formiraj Grupu Majstora",
+        "promptg": "Da li ste sigurni da želite da povučete zahtev za grupu?",
+        "primljenig": "Primljeni Zahtevi za Grupu",
+        "posiljalac": "Pošiljalac",
+        "prihvati": "Prihvati",
+        "odbiji": "Odbij",
+        "nemap": "Nema Zahteva za Posao",
+        "zahtevip": "Zahtevi za Posao",
+        "chat": "Otvori Poruke",
+        "promptp": "Da li ste sigurni da želite da povučete zahtev za posao?",
+        "nemagpos": "Nema Poslatih Zahteva za Grupu",
+        "nemagpri": "Nema Primljenih Zahteva za Grupu"
+    },
+    "recenzije": {
+        "ugovor": "Pregledaj Ugovor",
+        "nema": "Nema Recenzija"
+    },
+    "chat": {
+        "send": "Pošalji",
+        "prompt": "Napiši poruku"
+    },
+    "profilMajstora": {
+        "view": "Pregledaj Profil",
+        "zahtevp": "Pošalji Zahtev za Posao",
+        "zahtevg": "Pošalji Zahtev za Grupu",
+        "izaberi": "Izaberi Majstora",
+        "izbaci": "Izbaci iz grupe",
+        "prompt": "Da li ste sigurni da želite da izbacite člana iz grupe?"
+    },
+    "ugovor": {
+        "a": "\nUgovor\n\nStrane ugovora:\nIzmedju ",
+        "b": " (u daljem tekstu: Poslodavac) i ",
+        "c": " (u daljem tekstu: Majstor).\n\nPredmet ugovora:\nPredmet ovog ugovora je pružanje usluga od strane Majstora Poslodavcu na osnovu dogovora izmedju strana.\n\nOpis posla:\n",
+        "d": "\n\nPeriod izvršenja usluga:\nOd ",
+        "e": " do ",
+        "f": "\n\nCena po satu:\nDogovorena cena po satu iznosi ",
+        "g": " EUR\n\nTrajanje ugovora:\nUgovor stupa na snagu od trenutka potpisivanja i važi do dogovorenog datuma završetka.\n\nRadno vreme i obaveze:\nMajstor se obavezuje da ce obavljati usluge u skladu sa dogovorenim radnim vremenom i pravilima Poslodavca. Radno vreme, raspored, i obaveze obe strane bice detaljnije definisani u posebnom dokumentu o radu.\n\n",
+        "h": "Placanje\nPoslodavac se obavezuje da ce isplatiti Majstoru dogovorenu cenu po satu za obavljene usluge. Placanje ce se vršiti na nacin i u rokovima dogovorenim izmedju strana.\n\n",
+        "i": "Odgovornost:\nPoslodavac i Majstor se obavezuju da ce obavljati svoje obaveze u skladu sa zakonima i propisima lokalne vlade i da ce poštovati medjusobne dogovore.\n\n",
+        "j": "Raskid ugovora:\nUgovor može biti raskinut uz prethodnu saglasnost obe strane i u skladu sa zakonskim odredbama.\n\nOvaj ugovor je sklopljen uz punu pravnu snagu i obavezuje obe strane.",
+        "potpisp": "Potpis Poslodavca",
+        "potpism": "Potpis Majstora"
+    }
+}

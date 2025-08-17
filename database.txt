@@ -1,0 +1,212 @@
+CREATE TABLE [Gradovi] (
+    [ID] int NOT NULL IDENTITY,
+    [City] nvarchar(max) NOT NULL,
+    [City_ascii] nvarchar(max) NOT NULL,
+    [Country] nvarchar(max) NOT NULL,
+    [Admin_name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Gradovi] PRIMARY KEY ([ID])
+);
+
+CREATE TABLE [Identiteti] (
+    [ID] int NOT NULL IDENTITY,
+    [Username] nvarchar(20) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [Tip] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Identiteti] PRIMARY KEY ([ID])
+);
+
+CREATE TABLE [Kalendari] (
+    [ID] int NOT NULL IDENTITY,
+    [PocetniDatumi] nvarchar(max) NOT NULL,
+    [KrajnjiDatumi] nvarchar(max) NOT NULL,
+    [PocetniDatumiUgovora] nvarchar(max) NOT NULL,
+    [KrajnjiDatumiUgovora] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Kalendari] PRIMARY KEY ([ID])
+);
+
+CREATE TABLE [Korisnici] (
+    [ID] int NOT NULL IDENTITY,
+    [Naziv] nvarchar(30) NOT NULL,
+    [Slika] nvarchar(max) NULL,
+    [Opis] nvarchar(max) NOT NULL,
+    [GradID] int NOT NULL,
+    [ProsecnaOcena] real NULL,
+    [IdentitetID] int NOT NULL,
+    [Povezani] int NOT NULL,
+    CONSTRAINT [PK_Korisnici] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Korisnici_Gradovi_GradID] FOREIGN KEY ([GradID]) REFERENCES [Gradovi] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Korisnici_Identiteti_IdentitetID] FOREIGN KEY ([IdentitetID]) REFERENCES [Identiteti] ([ID]) ON DELETE CASCADE
+);
+
+CREATE TABLE [ChatMessages] (
+    [Id] int NOT NULL IDENTITY,
+    [Message] nvarchar(max) NOT NULL,
+    [Timestamp] datetime2 NOT NULL,
+    [SenderId] int NOT NULL,
+    [ReceiverId] int NOT NULL,
+    [ChatRoom] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_ChatMessages] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ChatMessages_Korisnici_ReceiverId] FOREIGN KEY ([ReceiverId]) REFERENCES [Korisnici] ([ID]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_ChatMessages_Korisnici_SenderId] FOREIGN KEY ([SenderId]) REFERENCES [Korisnici] ([ID]) ON DELETE NO ACTION
+);
+
+CREATE TABLE [Majstori] (
+    [ID] int NOT NULL IDENTITY,
+    [Email] nvarchar(max) NOT NULL,
+    [ListaVestina] nvarchar(max) NOT NULL,
+    [KalendarID] int NOT NULL,
+    [Tip] nvarchar(max) NOT NULL,
+    [GrupaID] int NULL,
+    [VodjaGrupe] int NOT NULL,
+    [KorisnikID] int NOT NULL,
+    CONSTRAINT [PK_Majstori] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Majstori_Kalendari_KalendarID] FOREIGN KEY ([KalendarID]) REFERENCES [Kalendari] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Majstori_Korisnici_KorisnikID] FOREIGN KEY ([KorisnikID]) REFERENCES [Korisnici] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Majstori_Majstori_GrupaID] FOREIGN KEY ([GrupaID]) REFERENCES [Majstori] ([ID])
+);
+
+CREATE TABLE [Poslodavci] (
+    [ID] int NOT NULL IDENTITY,
+    [Adresa] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [KorisnikID] int NOT NULL,
+    CONSTRAINT [PK_Poslodavci] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Poslodavci_Korisnici_KorisnikID] FOREIGN KEY ([KorisnikID]) REFERENCES [Korisnici] ([ID]) ON DELETE CASCADE
+);
+
+CREATE TABLE [ZahteviZaGrupu] (
+    [ID] int NOT NULL IDENTITY,
+    [Opis] nvarchar(max) NOT NULL,
+    [Prihvacen] int NOT NULL,
+    [MajstorPrimalacID] int NOT NULL,
+    [MajstorPosiljalacID] int NOT NULL,
+    CONSTRAINT [PK_ZahteviZaGrupu] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_ZahteviZaGrupu_Majstori_MajstorPosiljalacID] FOREIGN KEY ([MajstorPosiljalacID]) REFERENCES [Majstori] ([ID]),
+    CONSTRAINT [FK_ZahteviZaGrupu_Majstori_MajstorPrimalacID] FOREIGN KEY ([MajstorPrimalacID]) REFERENCES [Majstori] ([ID])
+);
+
+CREATE TABLE [Oglasi] (
+    [ID] int NOT NULL IDENTITY,
+    [Opis] nvarchar(max) NOT NULL,
+    [CenaPoSatu] real NOT NULL,
+    [ListaSlika] nvarchar(max) NULL,
+    [ListaVestina] nvarchar(max) NOT NULL,
+    [Naslov] nvarchar(max) NOT NULL,
+    [DatumPostavljanja] datetime2 NOT NULL,
+    [DatumZavrsetka] datetime2 NOT NULL,
+    [PoslodavacID] int NOT NULL,
+    [Prikazan] bit NOT NULL,
+    CONSTRAINT [PK_Oglasi] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Oglasi_Poslodavci_PoslodavacID] FOREIGN KEY ([PoslodavacID]) REFERENCES [Poslodavci] ([ID]) ON DELETE CASCADE
+);
+
+CREATE TABLE [MajstoriOglasi] (
+    [ID] int NOT NULL IDENTITY,
+    [MajstorId] int NOT NULL,
+    [OglasID] int NOT NULL,
+    CONSTRAINT [PK_MajstoriOglasi] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_MajstoriOglasi_Majstori_MajstorId] FOREIGN KEY ([MajstorId]) REFERENCES [Majstori] ([ID]),
+    CONSTRAINT [FK_MajstoriOglasi_Oglasi_OglasID] FOREIGN KEY ([OglasID]) REFERENCES [Oglasi] ([ID])
+);
+
+CREATE TABLE [ZahteviZaPosao] (
+    [ID] int NOT NULL IDENTITY,
+    [Opis] nvarchar(max) NOT NULL,
+    [Prihvacen] int NOT NULL,
+    [CenaPoSatu] real NOT NULL,
+    [ListaSlika] nvarchar(max) NULL,
+    [DatumZavrsetka] datetime2 NOT NULL,
+    [MajstorID] int NOT NULL,
+    [PoslodavacID] int NOT NULL,
+    [OglasID] int NULL,
+    CONSTRAINT [PK_ZahteviZaPosao] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_ZahteviZaPosao_Majstori_MajstorID] FOREIGN KEY ([MajstorID]) REFERENCES [Majstori] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_ZahteviZaPosao_Oglasi_OglasID] FOREIGN KEY ([OglasID]) REFERENCES [Oglasi] ([ID]),
+    CONSTRAINT [FK_ZahteviZaPosao_Poslodavci_PoslodavacID] FOREIGN KEY ([PoslodavacID]) REFERENCES [Poslodavci] ([ID])
+);
+
+CREATE TABLE [Ugovori] (
+    [ID] int NOT NULL IDENTITY,
+    [Status] nvarchar(max) NOT NULL,
+    [MajstorID] int NOT NULL,
+    [PoslodavacID] int NOT NULL,
+    [ZahtevZaPosaoID] int NOT NULL,
+    [ImeMajstora] nvarchar(max) NOT NULL,
+    [ImePoslodavca] nvarchar(max) NOT NULL,
+    [CenaPoSatu] real NOT NULL,
+    [Opis] nvarchar(max) NOT NULL,
+    [DatumPocetka] datetime2 NOT NULL,
+    [DatumZavrsetka] datetime2 NOT NULL,
+    [PotpisMajstora] nvarchar(max) NOT NULL,
+    [PotpisPoslodavca] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Ugovori] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Ugovori_Majstori_MajstorID] FOREIGN KEY ([MajstorID]) REFERENCES [Majstori] ([ID]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Ugovori_Poslodavci_PoslodavacID] FOREIGN KEY ([PoslodavacID]) REFERENCES [Poslodavci] ([ID]),
+    CONSTRAINT [FK_Ugovori_ZahteviZaPosao_ZahtevZaPosaoID] FOREIGN KEY ([ZahtevZaPosaoID]) REFERENCES [ZahteviZaPosao] ([ID])
+);
+
+CREATE TABLE [Recenzije] (
+    [ID] int NOT NULL IDENTITY,
+    [Opis] nvarchar(max) NOT NULL,
+    [Ocena] int NOT NULL,
+    [ListaSlika] nvarchar(max) NULL,
+    [UgovorID] int NOT NULL,
+    [PrimalacID] int NOT NULL,
+    [DavalacID] int NOT NULL,
+    CONSTRAINT [PK_Recenzije] PRIMARY KEY ([ID]),
+    CONSTRAINT [FK_Recenzije_Korisnici_DavalacID] FOREIGN KEY ([DavalacID]) REFERENCES [Korisnici] ([ID]),
+    CONSTRAINT [FK_Recenzije_Korisnici_PrimalacID] FOREIGN KEY ([PrimalacID]) REFERENCES [Korisnici] ([ID]),
+    CONSTRAINT [FK_Recenzije_Ugovori_UgovorID] FOREIGN KEY ([UgovorID]) REFERENCES [Ugovori] ([ID]) ON DELETE CASCADE
+);
+
+CREATE INDEX [IX_ChatMessages_ReceiverId] ON [ChatMessages] ([ReceiverId]);
+
+CREATE INDEX [IX_ChatMessages_SenderId] ON [ChatMessages] ([SenderId]);
+
+CREATE INDEX [IX_Korisnici_GradID] ON [Korisnici] ([GradID]);
+
+CREATE INDEX [IX_Korisnici_IdentitetID] ON [Korisnici] ([IdentitetID]);
+
+CREATE INDEX [IX_Majstori_GrupaID] ON [Majstori] ([GrupaID]);
+
+CREATE INDEX [IX_Majstori_KalendarID] ON [Majstori] ([KalendarID]);
+
+CREATE INDEX [IX_Majstori_KorisnikID] ON [Majstori] ([KorisnikID]);
+
+CREATE INDEX [IX_MajstoriOglasi_MajstorId] ON [MajstoriOglasi] ([MajstorId]);
+
+CREATE INDEX [IX_MajstoriOglasi_OglasID] ON [MajstoriOglasi] ([OglasID]);
+
+CREATE INDEX [IX_Oglasi_PoslodavacID] ON [Oglasi] ([PoslodavacID]);
+
+CREATE INDEX [IX_Poslodavci_KorisnikID] ON [Poslodavci] ([KorisnikID]);
+
+CREATE INDEX [IX_Recenzije_DavalacID] ON [Recenzije] ([DavalacID]);
+
+CREATE INDEX [IX_Recenzije_PrimalacID] ON [Recenzije] ([PrimalacID]);
+
+CREATE INDEX [IX_Recenzije_UgovorID] ON [Recenzije] ([UgovorID]);
+
+CREATE INDEX [IX_Ugovori_MajstorID] ON [Ugovori] ([MajstorID]);
+
+CREATE INDEX [IX_Ugovori_PoslodavacID] ON [Ugovori] ([PoslodavacID]);
+
+CREATE INDEX [IX_Ugovori_ZahtevZaPosaoID] ON [Ugovori] ([ZahtevZaPosaoID]);
+
+CREATE INDEX [IX_ZahteviZaGrupu_MajstorPosiljalacID] ON [ZahteviZaGrupu] ([MajstorPosiljalacID]);
+
+CREATE INDEX [IX_ZahteviZaGrupu_MajstorPrimalacID] ON [ZahteviZaGrupu] ([MajstorPrimalacID]);
+
+CREATE INDEX [IX_ZahteviZaPosao_MajstorID] ON [ZahteviZaPosao] ([MajstorID]);
+
+CREATE INDEX [IX_ZahteviZaPosao_OglasID] ON [ZahteviZaPosao] ([OglasID]);
+
+CREATE INDEX [IX_ZahteviZaPosao_PoslodavacID] ON [ZahteviZaPosao] ([PoslodavacID]);
+
+BULK INSERT Gradovi
+FROM 'fileLocation'
+WITH (
+    FIELDTERMINATOR = ';',
+    ROWTERMINATOR = '\n',
+    FIRSTROW = 2
+);

@@ -1,0 +1,197 @@
+{
+    "id": "en",
+    "general": {
+        "yes": "Yes",
+        "no": "No",
+        "loading": "loading",
+        "error": {
+            "nepunaForma": "All fields must be filled",
+            "netGreska": "Error performing action",
+            "badRequest": "Invalid parameters"
+        },
+        "submit": "Submit"
+    },
+    "header": {
+        "login": "LOGIN",
+        "register": "REGISTER",
+        "majstor": "Craftsman",
+        "poslodavac": "Employer",
+        "profil": "PROFILE"
+    },
+    "pocetna": {
+        "moto": "Find the right local talent for you",
+        "pregledMajstora": "Search Craftsmen",
+        "pregledOglasa": "Search Job Postings"
+    },
+    "profilHeader": {
+        "napraviOglas": "Create Job Posting",
+        "menu": "MENU",
+        "edit": "Edit Profile",
+        "logout": "Log Out",
+        "delete": "Delete Profile",
+        "confirmLogout": "Are you sure you want to log out?",
+        "confirmDelete": "Are you sure you want to delete your profile?"
+    },
+    "formaProfil": {
+        "username": "Username",
+        "password": "Password",
+        "login": "Login",
+        "naziv": "Public Name",
+        "opis": "Description",
+        "grad": "City",
+        "stolar": "Carpenter",
+        "elektricar": "Electrician",
+        "vodoinstalater": "Plumber",
+        "keramicar": "Tilesetter",
+        "drugo": "Other",
+        "register": "Register",
+        "loginPrompt": "Already have an account? Login here",
+        "adresa": "Adress",
+        "vestine": "Skills",
+        "slika": "Profile photo",
+        "naslov": "Title"
+    },
+    "pregledi": {
+        "search": "Search",
+        "filters": "Filters",
+        "filter": "Filter",
+        "minOcena": "Minimum Grade",
+        "none": "None",
+        "sort": "Sort",
+        "ocena": "Grade",
+        "brRecenzija": "Number of Reviews",
+        "minPlata": "Min. hourly pay",
+        "minPOcena": "Min. employer grade",
+        "plata": "Hourly Pay",
+        "prev": "Previous",
+        "next": "Next",
+        "page": "Page"
+    },
+    "profil": {
+        "zahtevPosao": "Send Job Request",
+        "zahtevGrupa": "Send Group Request",
+        "adminIzbrisi": "Delete User Profile",
+        "prompt": "Are you sure you want to delete user?"
+    },
+    "oglas": {
+        "prijavi": "Sign up",
+        "odjavi": "Sign off",
+        "datumDo": "Deadline",
+        "slike": "Pictures",
+        "prijavljeni": "Signed up Craftsmen"
+    },
+    "formaUgovor": {
+        "imem": "Name of Craftsman",
+        "imep": "Name of Employer",
+        "datump": "Date of Beginning",
+        "datumk": "Date of Ending",
+        "potpisi": "Sign Contract",
+        "opis": "Job Description",
+        "potpis": "Signature"
+    },
+    "formaGrupa": {
+        "opis": "Request Description",
+        "submit": "Send Group Request"
+    },
+    "formaRecenzija": {
+        "opis": "Review Description",
+        "submit": "Add Review"
+    },
+    "dropdown": {
+        "rasp": "Register as Employer",
+        "rasm": "Register as Craftsman",
+        "switch": "Switch Profile"
+    },
+    "kalendar": {
+        "sd": "Set Days",
+        "sr": "Set Ranges",
+        "fd": "Free Days",
+        "fr": "Free Ranges",
+        "save": "Save Calendar"
+    },
+    "stranicaProfil": {
+        "nema": "No Data",
+        "ugovori": "Contracts",
+        "oglasi": "Job Postings",
+        "gzahtevi": "Group Requests",
+        "pzahtevi": "Job Requests",
+        "kalendar": "Calendar",
+        "clanovi": "Members",
+        "izlazIzGrupe": "Leave Group",
+        "iz": "From",
+        "recenzije": "Reviews"
+    },
+    "profilUgovori": {
+        "nema": "No Contracts",
+        "aktivni": "Active Contracts",
+        "dpocetak": "Date of Beginning",
+        "dkraj": "Date of Ending",
+        "download": "Download PDF",
+        "potpisi": "Sign Contract",
+        "recenzija": "Add Review",
+        "raskini": "Terminate Contract",
+        "neuspeh": "Job Failed",
+        "uspeh": "Job Successful",
+        "prompt": "Are you sure you want to terminate the contract?",
+        "zavrseni": "Finished Contracts"
+    },
+    "profilOglasi": {
+        "nema": "No Job Postings",
+        "oglasi": "Active Job Postings",
+        "vestine": "Wanted Skills",
+        "pogledaj": "View Job Posting",
+        "odjavi": "Sign Off",
+        "izbrisi": "Delete Job Posting",
+        "prompt": "Are you sure you want to delete the job posting?",
+        "pdate": "Posting Date",
+        "propmtodjava": "Are you sure you want to sign off?"
+    },
+    "profilZahtevi": {
+        "nemag": "No Group Requests",
+        "poslatig": "Sent Group Requests",
+        "primalac": "Recipient",
+        "povuci": "Retract",
+        "napravig": "Form Craftsman Group",
+        "promptg": "Are you sure you want to retract the group request?",
+        "primljenig": "Recieved Group Requests",
+        "posiljalac": "Sender",
+        "prihvati": "Accept",
+        "odbiji": "Refuse",
+        "nemap": "No Job Requests",
+        "zahtevip": "Job Requests",
+        "chat": "Open Chat",
+        "promptp": "Are you sure you want to retract the job request?",
+        "nemagpos": "No Sent Group Requests",
+        "nemagpri": "No Recieved Group Requests"
+    },
+    "recenzije": {
+        "ugovor": "View Contract",
+        "nema": "No Reviews"
+    },
+    "chat": {
+        "send": "Send",
+        "prompt": "Type message"
+    },
+    "profilMajstora": {
+        "view": "View Profile",
+        "zahtevp": "Send Job Request",
+        "zahtevg": "Send Group Request",
+        "izaberi": "Choose Craftsman",
+        "izbaci": "Kick From Group",
+        "prompt": "Are you sure you want to kick member from group?"
+    },
+    "ugovor": {
+        "a": "\nContract\n\nParties:\nBetween ",
+        "b": " (in the following text: The Employer) and ",
+        "c": " (in the following text: The Craftsman).\n\nSubject of the contract:\nThe subject of this contract is the lending of services from The Craftsman to The Employer on the basis of agreement between the parties.\n\nJob description:\n",
+        "d": "\n\nPeriod of performing of the services:\nFrom ",
+        "e": " until ",
+        "f": "\n\nHourly rate of pay:\nThe agreed upon hourly rate of pay is ",
+        "g": " EUR\n\nDuration of the contract:\nThe contract is in effect from the time of signing and lasts until the agreed upon final date.\n\nWorking hours and obligations:\nThe Craftsman is obligated to perform services in accordance with the agreed upon working hours and rules of The Employer. The working hours, timetable, and the obligations of both parties will be defined in more detail in a seperate document about the work.\n\n",
+        "h": "Payment\nThe Employer is obligated to pay The Craftsman the agreed upon hourly rate for their services. The payment will be performed in the manner and in the periods agreed on by the parties.\n\n",
+        "i": "Obligations:\nThe Employer and The Craftsman are obligated to perform their obligations in accordance with the laws and regulations of the local government and to respect the agreements between themselves.\n\n",
+        "j": "Termination of the contract:\nThe contract can be terminated with the prior agreement of both parties and in accordance with legal provisions.\n\nThis contract is signed with complete legal power and obliges both parties.",
+        "potpisp": "Signature of The Employer",
+        "potpism": "Signature of The Craftsman"
+    }
+}
